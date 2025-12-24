@@ -1,11 +1,54 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<Welcome />
+    <main>
+        <div class="px-5 py-5 mx-5 text-center">
+            <div
+                style="display:flex;flex-direction: row; width:100%; justify-content: center; align-items: center;"
+            >
+                <img
+                    src="https://tobbfenlis.meb.k12.tr/meb_iys_dosyalar/07/18/763646/resimler/2022_03/05230150_tobb-fen-lisesi_logo-1.jpg"
+                    width="84"
+                    height="84"
+                />
+            </div>
+
+            <h1 class="display-5 fw-bold text-body-emphasis">
+                Coğrafya Performans Ödevi
+            </h1>
+            <div class="mx-auto">
+                <p class="lead mb-4">Antalya ve Japonya Turizm Haritası</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <a href="/antalya" class="btn btn-link btn-lg px-4 gap-3"
+                        >Antalya ili</a
+                    >
+                    <a href="/japonya" class="btn btn-link btn-lg px-4"
+                        >Japonya</a
+                    >
+                </div>
+            </div>
+        </div>
+        <h5>Batu Akyar 9/A 22</h5>
+    </main>
 </Layout>
+
+<style>
+    main {
+        height: 100dvh;
+        width: 100dvw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        flex-direction: column;
+        background: #eee;
+    }
+
+    main > div {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+</style>

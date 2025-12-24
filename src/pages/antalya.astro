@@ -1,0 +1,173 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+    <nav>
+        <div id="title">ANTALYA İLİ TURİZM HARİTASI</div>
+    </nav>
+
+    <section id="lejant">
+        <b>HARİTA İŞARETLERİ VE KONTROLLER</b>
+        <br />
+        <div>
+            <h6>
+                <input type="checkbox" checked name="dogal" id="dogal" />
+                <label for="dogal">Doğal Turistik Yerler:</label>
+            </h6>
+            <ul id="dogalSections">
+                <li>Köprülü Kanyon</li>
+                <li>Manavgat Şelalesi</li>
+                <li>Aşağı Düden Şelalesi</li>
+                <li>Damlataş Mağarası</li>
+                <li>Güver Uçurumu</li>
+                <li>Kekova Adası</li>
+                <li>Karain Mağarası</li>
+                <li>Akbaş Göleti <span class="squareblue"></span></li>
+            </ul>
+        </div>
+        <div>
+            <h6>
+                <input type="checkbox" checked name="beseri" id="beseri" />
+                <label for="beseri">Beşeri Turistik Yerler:</label>
+            </h6>
+            <ul id="beseriSections">
+                <li>Aspendos Antik Tiyatrosu</li>
+                <li>Kaleiçi <span class="square"></span></li>
+                <li>Konyaaltı Plajı <span class="plaj"></span></li>
+                <li>Side Antik Kenti</li>
+                <li>Hadrian (Üçkapılar)</li>
+                <li>Likya Uygarlıkları Müzesi</li>
+                <li>Kemer Plajı <span class="plaj"></span></li>
+                <li>
+                    Olympos Teleferik <span
+                        class="plaj"
+                        style="background: black"></span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div id="map"></div>
+</Layout>
+
+<style>
+    body {
+        width: 100dvw;
+        height: 100dvh;
+        overflow: hidden;
+    }
+
+    h6 {
+        padding: 0;
+        margin: 0;
+    }
+
+    #map {
+        width: calc(100% - 1.4rem);
+        height: calc(100% - 1.4rem);
+        margin: 0.7rem;
+        border-radius: 0.5rem;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100dvw;
+        z-index: 999;
+    }
+
+    nav #title {
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ffffff;
+        padding: 0.25rem 3rem;
+        padding-top: 0.7rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-radius: 0 0 0.5rem 0.5rem;
+    }
+
+    #lejant {
+        z-index: 999;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 24rem;
+        background: #fff;
+        padding: 0.4rem 2rem 2.2rem 2rem;
+        backdrop-filter: blur(0.5rem);
+        border-start-start-radius: 0.5rem;
+    }
+
+    #map > div.leaflet-control-container > div.leaflet-bottom.leaflet-left {
+        right: 0 !important;
+        left: unset !important;
+    }
+
+    ul#dogalSections,
+    ul#beseriSections {
+        display: grid;
+        grid-template-columns: auto auto;
+        margin: 0;
+        padding: 0;
+        font-size: 0.7rem;
+    }
+
+    ul#dogalSections li,
+    ul#beseriSections li {
+        list-style-position: inside;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li:hover {
+        background: rgb(255 255 0 / 60%);
+        cursor: pointer;
+    }
+
+    ul#dogalSections li::marker {
+        color: blue;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    ul#beseriSections li::marker {
+        color: red;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    span.plaj {
+        height: 2px;
+        width: 1.5rem;
+        margin-bottom: 0.2rem;
+        margin-left: 0.5rem;
+        background-color: red;
+        display: inline-block;
+    }
+
+    span.square {
+        width: 0.7rem;
+        height: 0.7rem;
+        margin-left: 0.5rem;
+        background-color: rgb(0 255 0 / 50%);
+        border: 1px solid green;
+        display: inline-block;
+    }
+
+    span.squareblue {
+        width: 0.7rem;
+        height: 0.7rem;
+        margin-left: 0.5rem;
+        background-color: rgb(0 0 255 / 50%);
+        border: 1px solid blue;
+        display: inline-block;
+    }
+</style>
+
+<script>
+    import "../scripts/antalya";
+</script>
